@@ -1,0 +1,371 @@
+/***************** Global style *****************/
+#home, #About, #service, #skills {
+   font-family: 'Ubuntu',sans-serif;
+}
+body {
+    overflow: hidden;
+}
+.overlay-leading {
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+    color: #fff;
+    z-index: 99999;
+}
+.overlay-leading h1 {
+   direction: rtl;
+   text-align: center;
+   position: absolute;
+   right: 50%;
+   top: 50%;
+   transform: translate(50%,-50%);
+}
+/***************** home section style *****************/
+
+#home {
+    background-color: #F29089;
+    width: 100%;
+    min-height: 500px;
+    position: relative;
+}
+#home .home-content {
+    position: relative;
+    top: 20%;
+    font-size: 30px;
+    color: #fff;
+}
+#home .home-img {
+    margin-top: 30px;
+}
+#home .home-img img {
+    width: 100%;
+}
+.home-content .text-2 {
+    font-size: 60px;
+    color: #fff;
+}
+.home-content .text-3 {
+    display: inline-block;
+}
+.home-content .typed {
+    color: #28a745;
+    font-weight: bold;
+    text-transform: capitalize;
+    font-size: 30px;
+}
+.home-content button {
+    display: block;
+    margin-top: 20px;
+    font-size: 25px;
+    padding: 12px 36px;
+    margin-top: 20px;
+    font-weight: 400;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+.home-content button:hover {
+    background: transparent;
+}
+
+.navbar {
+    background: transparent;
+    transition:all 0.5s ease-in-out;
+}
+.navbar.active {
+    background: #f29089;
+    z-index:999;
+}
+.logo {
+    float: left;
+}
+.logo .navbar-brand {
+    color: #fff;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+.navbar .navbar-nav {
+    margin-left: 30%;
+}
+.navbar .nav-item {
+    margin-left: 40px;
+}
+.navbar .nav-item .nav-link {
+    color: #fff;
+    text-transform: capitalize;
+}
+.navbar-toggler i  {
+    color: #fff;
+}
+@media (max-width:992px){
+    .navbar .navbar-nav {
+        margin-left: 0;
+        width: 250px;
+        background-color: #28a745;
+        float: right;
+        overflow: hidden;
+    } 
+    .navbar .nav-item {
+        margin-left: 0;
+        padding: 10px 5px;
+        text-align: center;
+        transition: all 0.4s ease-in-out;
+    }
+    .navbar .nav-item:hover {
+        background-color: crimson;
+    }
+    .navbar .nav-item .nav-link:after {
+        display: none;
+    }
+
+}
+/***************** About section style *****************/
+#About {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    min-height: 500px;
+}
+#About hr {
+    width: 100px;
+    border-bottom: 2px solid #28a745;
+    margin-bottom:20px;
+}
+.About-img img {
+    width: 100%;
+    background: #eee;
+}
+.About-content {
+    margin-top: 40px;
+}
+.About-title {
+    font-size: 25px;
+    font-weight: bold;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+}
+.About-content button {
+    font-size: 20px;
+    text-transform: uppercase;
+    margin-top: 20px;
+    padding: 16px 20px;
+}
+.About-content a {
+    color: #fff;
+    text-decoration: none;
+}
+/***************** service section style *****************/
+#service {
+    padding-top:50px;
+    padding-bottom:50px;
+    min-height: 500px;
+}
+#service .service-title {
+    margin-bottom: 20px;
+    color: #fff;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+#service hr {
+    width:100px;
+    border:2px solid #28a745;
+    margin-bottom:30px;
+}
+.service-content {
+    background: #353535;
+    color: #fff;
+    text-align: center;
+    padding: 30px;
+    margin-bottom:20px;
+    transition:all 0.5s ease;
+}
+.service-content p {
+    font-family: Arial,sans-serif;
+}
+.service-content:hover {
+    background:#28a745;
+    color:#fff;
+    transform: scale(1.06);
+}
+.service-content:hover i {
+    color:#fff;
+}
+.service-content i {
+    color:#28a745;
+    margin-bottom:20px;
+}
+.service-content h2 {
+    text-transform:capitalize;
+    font-weight:500;
+    margin-bottom:15px;
+}
+/***************** skills section style *****************/
+#skills {
+   padding-top: 50px;
+   padding-bottom: 50px;
+   min-height: 500px;
+}
+#skills .skills-title {
+    font-size: 30px;
+    font-weight: bold;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+}
+#skills hr {
+   width: 100px;
+   border: 2px solid #28a745; 
+   margin-bottom: 20px;
+}
+.skills-content h2 {
+    font-size: 25px;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+#skills .owl-stage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#skills .owl-nav button {
+    margin-left: 10px;
+}
+#skills .box-item {
+    width:250px;
+    height:250px;
+    text-align: center;
+    background: #28a745;
+    color: #fff;
+    font-size: 40px;
+    text-transform: capitalize;
+}
+#skills .box-item span {
+    position: relative;
+    top: 35%;
+}
+/***************** mywork section style *****************/
+#blog {
+    padding-top:50px;
+    padding-bottom: 50px;
+    min-height: 500px;
+}
+#blog h2 {
+    font-size: 30px;
+    color: #fff;
+    font-weight: bold;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+}
+#blog hr {
+    width: 100px;
+    border: 2px solid #28a745;
+    margin-bottom: 20px;
+}
+#blog .blog-content {
+    height: auto;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px 0 #333;
+    background: #fff;
+    transition: all 0.3s ease-in-out;
+}
+#blog .blog-content:hover {
+    transform: translateY(-10px);
+}
+#blog .blog-content img {
+    width: 100%;
+    height: 300px;
+}
+#blog .blog-desk h2 {
+    color: #333;
+    margin-top: 10px;
+}
+#blog .blog-desk h2:after {
+    content: " ";
+    display: block;
+    border-bottom: 1px solid #333;
+    margin-top: 5px;
+}
+.blog-desk button {
+    margin-bottom: 20px;
+}
+.blog-desk button a {
+    color: #fff;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 18px;
+}
+/***************** contact section style *****************/
+#contact {
+    width: 100%;
+    min-height: 500px;
+    background-color: #f29089;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+#contact hr {
+    width: 100px;
+    border: 2px solid #28a745;
+    margin-bottom: 20px;
+}
+.contact-title {
+    font-size: 30px;
+    font-weight: bold;
+    text-transform:capitalize;
+    color: #fff;
+}
+form {
+    width: 80%;
+    margin: auto;
+}
+form span {
+    display: block;
+    color: #fff;
+    text-transform: capitalize;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+form input,textarea {
+    height: 50px;
+    border: none;
+    outline: none;
+    border-left: 2px solid transparent;
+    padding: 10px 15px;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    font-weight: 400;
+    display: block;
+    width: 100%;
+    background-color: #fff;
+    transition: border .5s ease;
+}
+form input[type="submit"]{
+    display: block;
+    width: 100px;
+    margin: auto;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+form textarea {
+    height: 100px;
+}
+.error.fail-alert {
+border: 2px solid red;
+border-radius: 4px;
+line-height: 1;
+padding: 2px 0 6px 6px;
+background: #ffe6eb;
+}
+input.valid.success-alert {
+border: 2px solid #4CAF50;
+background: #ffe6eb;
+}
+.cobyright {
+    width: 100%;
+    padding: 10px;
+    color: #fff;
+    font-size: 20px;
+}
