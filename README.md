@@ -1,7 +1,7 @@
 # Project Description
 
 ~~~
-this is website is show information About me .
+this is website is myportfolio for show information About me .
 ~~~
 
 ## stack of technology
