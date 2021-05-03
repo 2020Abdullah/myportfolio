@@ -61,7 +61,6 @@ $(document).ready(function(){
     nav:true,
     dots:true,
     margin:10,
-    autoplay: true,
     responsiveClass:true,
     responsive:{
         0:{
