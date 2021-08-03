@@ -45,7 +45,7 @@ $(document).ready(function(){
   // typewriter
   
     new TypeIt(".typed", {
-        strings: ["fronted Developer","Freelancer"],
+        strings: ["Website developer","Front End", "Back End" , "Wordpress Developer", "Web designer" , "Freelancer"],
         speed: 250,
         waitUntilVisible: false,
         breakLines: false,
@@ -61,6 +61,7 @@ $(document).ready(function(){
     nav:true,
     dots:true,
     margin:10,
+    autoplay: true,
     responsiveClass:true,
     responsive:{
         0:{
@@ -104,11 +105,9 @@ $("form").validate({
 })
 
 $(window).on('load', function () {
-  $("body").css("overflow", "auto");
-  $(".overlay-leading h1").fadeOut(3000, function(){
-      $(this).parent().fadeOut(2000, function(){
-        $(this).remove();
-      });
+  $(".overlay-leading").fadeOut(3000, function(){
+      $(this).remove();
+      $("body").css("overflow", "auto");
   });
 });
 

@@ -22,6 +22,14 @@ this is website is myportfolio for show information About me .
 3. The design contains sliders to showcase all my skills
 4. You can contact me from the form page, and your letter will reach me in the mail
 
+## update version template 2.0
+1. add New section [My Certfilcal]
+2. fix header menu
+3. add New skills
+4. add New services
+5. add google map
+6. Other fixes in the template
+
 # my portfolio live :
 
 [myportfolio github](https://2020abdullah.github.io/myportfolio/index.html)

@@ -1,9 +1,13 @@
 /***************** Global style *****************/
 #home, #About, #service, #skills {
    font-family: 'Ubuntu',sans-serif;
+   font-size:16px;
 }
 body {
     overflow: hidden;
+}
+a {
+    text-decoration: none;
 }
 .overlay-leading {
     position: fixed;
@@ -11,17 +15,16 @@ body {
     left:0;
     width: 100%;
     height: 100%;
-    background-color: #333;
+    background-color: #fff;
     color: #fff;
     z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.overlay-leading h1 {
-   direction: rtl;
-   text-align: center;
-   position: absolute;
-   right: 50%;
-   top: 50%;
-   transform: translate(50%,-50%);
+.overlay-leading img {
+    width: 100px;
+    height: 100px;
 }
 /***************** home section style *****************/
 
@@ -51,7 +54,7 @@ body {
     display: inline-block;
 }
 .home-content .typed {
-    color: #28a745;
+    color: #00bfa6;
     font-weight: bold;
     text-transform: capitalize;
     font-size: 30px;
@@ -86,12 +89,6 @@ body {
     font-weight: bold;
     text-transform: capitalize;
 }
-.navbar .navbar-nav {
-    margin-left: 30%;
-}
-.navbar .nav-item {
-    margin-left: 40px;
-}
 .navbar .nav-item .nav-link {
     color: #fff;
     text-transform: capitalize;
@@ -103,7 +100,7 @@ body {
     .navbar .navbar-nav {
         margin-left: 0;
         width: 250px;
-        background-color: #28a745;
+        background-color: #00bfa6;
         float: right;
         overflow: hidden;
     } 
@@ -129,7 +126,7 @@ body {
 }
 #About hr {
     width: 100px;
-    border-bottom: 2px solid #28a745;
+    border: 5px solid #00bfa6;
     margin-bottom:20px;
 }
 .About-img img {
@@ -169,7 +166,7 @@ body {
 }
 #service hr {
     width:100px;
-    border:2px solid #28a745;
+    border: 5px solid #00bfa6;
     margin-bottom:30px;
 }
 .service-content {
@@ -184,7 +181,7 @@ body {
     font-family: Arial,sans-serif;
 }
 .service-content:hover {
-    background:#28a745;
+    background:#00bfa6;
     color:#fff;
     transform: scale(1.06);
 }
@@ -192,7 +189,7 @@ body {
     color:#fff;
 }
 .service-content i {
-    color:#28a745;
+    color:#00bfa6;
     margin-bottom:20px;
 }
 .service-content h2 {
@@ -214,7 +211,7 @@ body {
 }
 #skills hr {
    width: 100px;
-   border: 2px solid #28a745; 
+   border: 5px solid #00bfa6;
    margin-bottom: 20px;
 }
 .skills-content h2 {
@@ -235,15 +232,42 @@ body {
     width:250px;
     height:250px;
     text-align: center;
-    background: #28a745;
+    background: #00bfa6;
     color: #fff;
     font-size: 40px;
     text-transform: capitalize;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
-
+#skills .box-item span {
+    position: relative;
+    top: 35%;
+}
+/***************** About section style *****************/
+#certfilcal {
+    padding-top:50px;
+    padding-bottom: 50px;
+    min-height: 500px;
+    background-color: #f29089;
+}
+#certfilcal h2 {
+    font-size: 30px;
+    font-weight: bold;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+    color: #fff;
+}
+#certfilcal hr {
+    width: 100px;
+    border: 5px solid #00bfa6;
+    margin-bottom: 20px;
+}
+.cert-info {
+    max-width: 100%;
+}
+.cert-info img {
+    width: 100%;
+    margin-bottom: 1rem;
+    border: 5px solid #333;
+}
 /***************** mywork section style *****************/
 #blog {
     padding-top:50px;
@@ -259,7 +283,7 @@ body {
 }
 #blog hr {
     width: 100px;
-    border: 2px solid #28a745;
+    border: 5px solid #00bfa6;
     margin-bottom: 20px;
 }
 #blog .blog-content {
@@ -267,34 +291,40 @@ body {
     margin-bottom: 20px;
     box-shadow: 0 0 10px 0 #333;
     background: #fff;
-    transition: all 0.3s ease-in-out;
-}
-#blog .blog-content:hover {
-    transform: translateY(-10px);
+    position: relative;
 }
 #blog .blog-content img {
     width: 100%;
     height: 300px;
 }
-#blog .blog-desk h2 {
-    color: #333;
-    margin-top: 10px;
+#blog .blog-desk {
+    opacity: 0;
+    position: absolute;
+    bottom:0;
+    width: 100%;
+    height: 0;
+    transition: all 0.4s ease-in-out;
+    overflow: hidden;
 }
-#blog .blog-desk h2:after {
-    content: " ";
-    display: block;
-    border-bottom: 1px solid #333;
-    margin-top: 5px;
+#blog .blog-content:hover > .blog-desk  {
+    opacity: 1;
+    height: fit-content;
+    background-color: rgba(0,0,0,0.5);
+    color: #fff;
+}
+#blog .blog-desk h2 {
+    margin-top: 10px;
 }
 .blog-desk button {
     margin-bottom: 20px;
 }
-.blog-desk button a {
+.blog-desk a {
     color: #fff;
     padding: 10px;
     font-weight: bold;
     font-size: 18px;
     text-decoration: none;
+    margin-bottom:30px;
 }
 /***************** contact section style *****************/
 #contact {
@@ -306,7 +336,7 @@ body {
 }
 #contact hr {
     width: 100px;
-    border: 2px solid #28a745;
+    border: 5px solid #00bfa6;
     margin-bottom: 20px;
 }
 .contact-title {
@@ -315,10 +345,6 @@ body {
     text-transform:capitalize;
     color: #fff;
 }
-form {
-    width: 80%;
-    margin: auto;
-}
 form span {
     display: block;
     color: #fff;
@@ -326,32 +352,18 @@ form span {
     font-size: 20px;
     margin-bottom: 10px;
 }
-form input,textarea {
-    height: 50px;
-    border: none;
-    outline: none;
-    border-left: 2px solid transparent;
-    padding: 10px 15px;
-    color: #333;
-    margin-bottom: 30px;
-    font-size: 16px;
-    letter-spacing: 1px;
-    font-weight: 400;
-    display: block;
-    width: 100%;
-    background-color: #fff;
-    transition: border .5s ease;
+form input, textarea {
+    margin-bottom: 1rem;
 }
 form input[type="submit"]{
-    display: block;
     width: 100px;
     margin: auto;
     font-size: 20px;
     text-transform: uppercase;
     font-weight: bold;
 }
-form textarea {
-    height: 100px;
+textarea.form-control {
+    height: 150px;
 }
 .error.fail-alert {
 border: 2px solid red;
@@ -363,6 +375,10 @@ background: #ffe6eb;
 input.valid.success-alert {
 border: 2px solid #4CAF50;
 background: #ffe6eb;
+}
+#contact .contact-box {
+    background-color: #17a2b8;
+    padding: 1.5rem;
 }
 .cobyright {
     width: 100%;
