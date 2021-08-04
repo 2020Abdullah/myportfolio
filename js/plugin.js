@@ -2,36 +2,22 @@ $(document).ready(function(){
 
   // scroll top to ELement
 
-    $(".nav-link").eq(0).click(function(){
-    $("html,body").animate({
-      scrollTop:$("#home").offset().top
-    },1000)
-    })
-    $(".nav-link").eq(1).click(function(){
-    $("html,body").animate({
-    scrollTop:$("#About").offset().top
-    },1000)
-    })
-    $(".nav-link").eq(2).click(function(){
-    $("html,body").animate({
-    scrollTop:$("#service").offset().top
-    },1000)
-    })
-    $(".nav-link").eq(3).click(function(){
-    $("html,body").animate({
-    scrollTop:$("#skills").offset().top
-    },1000)
-    })
-    $(".nav-link").eq(4).click(function(){
-    $("html,body").animate({
-    scrollTop:$("#blog").offset().top
-    },1000)
-    })
-    $(".nav-link").eq(5).click(function(){
-    $("html,body").animate({
-    scrollTop:$("#contact").offset().top
-    },1000)
-    })
+  $('.navbar').find('a').on('click',function(e){
+    if(this.hash !== ''){
+         e.preventDefault();
+        
+         var hash = this.hash;
+
+         $('html, body').animate({
+             scrollTop: $(this.hash).offset().top
+
+         },1000,function(){
+           
+             window.Location.hash = hash;
+
+         });
+    };
+});
 
     // navbar fixed
     $(window).scroll(function(){
