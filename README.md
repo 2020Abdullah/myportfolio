@@ -1,8 +1,7 @@
 # Project Description
 
-~~~
 this is website is myportfolio for show information About me .
-~~~
+
 
 ## stack of technology
 
@@ -31,6 +30,6 @@ this is website is myportfolio for show information About me .
 6. Other fixes in the template
 
 # my portfolio live :
-
-[myportfolio github](https://2020abdullah.github.io/myportfolio/index.html)
-
+~~~
+https://2020abdullah.github.io/myportfolio/index.html
+~~~
