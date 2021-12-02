@@ -27,27 +27,97 @@ a {
     height: 100px;
 }
 /***************** home section style *****************/
-
 #home {
     background-color: #F29089;
     width: 100%;
-    min-height: 500px;
+    min-height: 600px;
     position: relative;
 }
+@keyframes move_wave {
+    0% {
+        transform: translateX(0) translateZ(0) scaleY(1)
+    }
+    50% {
+        transform: translateX(-25%) translateZ(0) scaleY(0.55)
+    }
+    100% {
+        transform: translateX(-50%) translateZ(0) scaleY(1)
+    }
+}
+#home .waveWrapper {
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+}
+#home .waveWrapperInner {
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
+    bottom: -1px;
+    background-image: linear-gradient(to top, #F29089 20%, #3f3d56 80%);
+    z-index: -1;
+}
+#home .bgTop {
+    z-index: 15;
+    opacity: 0.5;
+}
+#home .bgMiddle {
+    z-index: 10;
+    opacity: 0.75;
+}
+#home .bgBottom {
+    z-index: 5;
+}
+#home .wave {
+    position: absolute;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background-repeat: repeat no-repeat;
+    background-position: 0 bottom;
+    transform-origin: center bottom;
+}
+#home .waveTop {
+    background-size: 50% 100px;
+}
+#home .waveAnimation .waveTop {
+  animation: move-wave 3s;
+   -webkit-animation: move-wave 3s;
+   -webkit-animation-delay: 1s;
+   animation-delay: 1s;
+}
+#home .waveMiddle {
+    background-size: 50% 120px;
+}
+#home .waveAnimation .waveMiddle {
+    animation: move_wave 10s linear infinite;
+}
+#home .waveBottom {
+    background-size: 50% 100px;
+}
+#home .waveAnimation .waveBottom {
+    animation: move_wave 15s linear infinite;
+}
 #home .home-content {
-    position: relative;
-    top: 20%;
+    margin-top: 30px;
     font-size: 30px;
     color: #fff;
 }
-#home .home-img {
-    margin-top: 30px;
+#home .home-img, #home .home-content  {
+    position: relative;
+    z-index: 20;
+    top: 100px;
 }
 #home .home-img img {
     width: 100%;
 }
 .home-content .text-2 {
-    font-size: 60px;
+    font-size: 50px;
     color: #fff;
 }
 .home-content .text-3 {
@@ -72,7 +142,11 @@ a {
 .home-content button:hover {
     background: transparent;
 }
-
+@media (max-width:768px){
+    #home .home-img{
+        display: none;
+    }
+}
 .navbar {
     background: transparent;
     transition:all 0.5s ease-in-out;
@@ -197,6 +271,7 @@ a {
     text-transform:capitalize;
     font-weight:500;
     margin-bottom:15px;
+    font-size: 25px;
 }
 /***************** skills section style *****************/
 #skills {
@@ -230,17 +305,18 @@ a {
     margin-left: 10px;
 }
 #skills .box-item {
-    width:250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     height:250px;
-    text-align: center;
     background: #00bfa6;
     color: #fff;
     font-size: 40px;
     text-transform: capitalize;
 }
-#skills .box-item span {
-    position: relative;
-    top: 35%;
+#skills .box-item img {
+    width: 100px;
 }
 /***************** About section style *****************/
 #certfilcal {

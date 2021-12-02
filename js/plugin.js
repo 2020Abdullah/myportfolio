@@ -19,7 +19,8 @@ $(document).ready(function(){
     };
 });
 
-    // navbar fixed
+  // navbar fixed
+  
     $(window).scroll(function(){
     if($(this).scrollTop() >= 500){
     $(".navbar").addClass("active");
@@ -31,7 +32,7 @@ $(document).ready(function(){
   // typewriter
   
     new TypeIt(".typed", {
-        strings: ["Website developer","Front End", "Back End" , "Wordpress Developer", "Web designer" , "Freelancer"],
+        strings: ["web developer front End" , "Wordpress Developer" , "Freelancer"],
         speed: 250,
         waitUntilVisible: false,
         breakLines: false,
@@ -44,7 +45,7 @@ $(document).ready(function(){
 
   $('.owl-carousel').owlCarousel({
     loop:true,
-    nav:true,
+    nav:false,
     dots:true,
     margin:10,
     autoplay: true,
@@ -53,17 +54,14 @@ $(document).ready(function(){
         0:{
             items:1,
             loop:true,
-            nav:true,
         },
         600:{
             items:3,
             loop:true,
-            nav:true,
         },
         1000:{
             items:3,
             loop:true,
-            nav:false,
         }
     }
 })
