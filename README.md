@@ -1,6 +1,6 @@
 # Project Description
 
-this is website is myportfolio for show information About me .
+this is website is myportfolio for show All information About me .
 
 
 ## stack of technology
@@ -21,13 +21,17 @@ this is website is myportfolio for show information About me .
 3. The design contains sliders to showcase all my skills
 4. You can contact me from the form page, and your letter will reach me in the mail
 
-## update version template 2.0
+## update version theme 3.0
 1. add New section [My Certfilcal]
-2. fix header menu
-3. add New skills
-4. add New services
-5. add google map
-6. Other fixes in the template
+2. add New background Home section
+3. add fav icon title
+4. update data My Services section
+5. add New Examples +2
+6. fix header menu
+7. add New skills
+8. add New services
+9. add google map
+10. Other fixes in the template
 
 # my portfolio live :
 ~~~
