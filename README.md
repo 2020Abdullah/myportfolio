@@ -35,5 +35,5 @@ this is website is myportfolio for show All information About me .
 
 # my portfolio live :
 ~~~
-https://2020abdullah.github.io/myportfolio/index.html
+https://2020abdullah.github.io/myportfolio/
 ~~~
