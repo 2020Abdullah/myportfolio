@@ -89,9 +89,6 @@ $("form").validate({
 })
 
 $(window).on('load', function () {
-  $(".overlay-leading").fadeOut(3000, function(){
-      $(this).remove();
-      $("body").css("overflow", "auto");
-  });
+  $(".overlay-leading").fadeOut(3000);
 });
 
