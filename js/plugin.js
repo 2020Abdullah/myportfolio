@@ -32,7 +32,7 @@ $(document).ready(function(){
   // typewriter
   
     new TypeIt(".typed", {
-        strings: ["web developer front End" , "Wordpress Developer" , "Freelancer"],
+        strings: ["web developer" , "Wordpress Developer" , "Freelancer"],
         speed: 250,
         waitUntilVisible: false,
         breakLines: false,
