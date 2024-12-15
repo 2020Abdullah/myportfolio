@@ -8,11 +8,11 @@ import "swiper/css/pagination";
 import { Card } from 'react-bootstrap';
 
 const myCertifical = [
-    { id: 1, title: "HTML", issuer: "Issued by: Microsoft" , image: "/images/cert/cert1.png" },
-    { id: 2, title: "CSS", issuer: "Issued by: Microsoft" , image: "/images/cert/cert2.png" },
-    { id: 3, title: "JAVASCRIPT", issuer: "Issued by: Microsoft" , image: "/images/cert/cert3.png" },
-    { id: 4, title: "Jquery AND Bootstrap", issuer: "Issued by: Microsoft" , image: "/images/cert/cert4.png" },
-    { id: 5, title: "Gradution Project", issuer: "Issued by: Microsoft" , image: "/images/cert/cert5.png" },
+    { id: 1, title: "HTML", issuer: "Issued by: Microsoft" , image: "./images/cert/cert1.png" },
+    { id: 2, title: "CSS", issuer: "Issued by: Microsoft" , image: "./images/cert/cert2.png" },
+    { id: 3, title: "JAVASCRIPT", issuer: "Issued by: Microsoft" , image: "./images/cert/cert3.png" },
+    { id: 4, title: "Jquery AND Bootstrap", issuer: "Issued by: Microsoft" , image: "./images/cert/cert4.png" },
+    { id: 5, title: "Gradution Project", issuer: "Issued by: Microsoft" , image: "./images/cert/cert5.png" },
 ];
 
 const Certifical = () => {

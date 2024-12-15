@@ -29,22 +29,24 @@ const Welcome = () => {
 
   return (
     <section id="home">
-        <div className="container">
-            <div className="row align-items-center">
-              <div className="col-md-6 col-sm-12">
-                <div className="home-content">
-                    <div>Hello, my name is</div>
-                    <div className="text-2">Abdalla mohamad</div> 
-                    <span ref={typedElement}></span>
-                    <a className="btn btn-success" href="#About">Hire me</a>
+        <div className='home_content'>
+          <div className="container">
+              <div className="row align-items-center">
+                <div className="col-md-6 col-sm-12">
+                  <div className="home-content">
+                      <div>Hello, my name is</div>
+                      <div className="text-2">Abdalla mohamad</div> 
+                      <span ref={typedElement}></span>
+                      <a className="btn btn-success" href="#About">Hire me</a>
+                  </div>
+                </div>
+                <div className="col-md-6 col-sm-12">
+                  <div className="home-img">
+                      <img src="./images/coding.svg" className="img-fluid" alt='img'/>
+                  </div>
                 </div>
               </div>
-              <div className="col-md-6 col-sm-12">
-                <div className="home-img">
-                    <img src="/images/coding.svg" className="img-fluid" alt='img'/>
-                </div>
-              </div>
-            </div>
+          </div>
         </div>
     </section>
   )

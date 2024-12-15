@@ -1,6 +1,6 @@
 /***************** Global style *****************/
 :root {
-  --m-color: #42b883; 
+  --m-color: #00CBA9; 
   --h-color: #93e4c1; 
   --t-color1: #fff; 
   --t-color2: #35495e; 
@@ -107,85 +107,16 @@ a {
    min-height: 600px;
    position: relative;
 }
-@keyframes move_wave {
-   0% {
-       transform: translateX(0) translateZ(0) scaleY(1)
-   }
-   50% {
-       transform: translateX(-25%) translateZ(0) scaleY(0.55)
-   }
-   100% {
-       transform: translateX(-50%) translateZ(0) scaleY(1)
-   }
-}
-#home .waveWrapper {
-   overflow: hidden;
-   position: absolute;
-   left: 0;
-   right: 0;
-   bottom: 0;
-   top: 0;
-   margin: auto;
-}
-#home .waveWrapperInner {
-   position: absolute;
-   width: 100%;
-   overflow: hidden;
-   height: 100%;
-   bottom: -1px;
-   background-image: linear-gradient(to top, #F29089 20%, #3f3d56 80%);
-   z-index: -1;
-}
-#home .bgTop {
-   z-index: 15;
-   opacity: 0.5;
-}
-#home .bgMiddle {
-   z-index: 10;
-   opacity: 0.75;
-}
-#home .bgBottom {
-   z-index: 5;
-}
-#home .wave {
-   position: absolute;
-   left: 0;
-   width: 200%;
-   height: 100%;
-   background-repeat: repeat no-repeat;
-   background-position: 0 bottom;
-   transform-origin: center bottom;
-}
-#home .waveTop {
-   background-size: 50% 100px;
-}
-#home .waveAnimation .waveTop {
- animation: move-wave 3s;
-  -webkit-animation: move-wave 3s;
-  -webkit-animation-delay: 1s;
-  animation-delay: 1s;
-}
-#home .waveMiddle {
-   background-size: 50% 120px;
-}
-#home .waveAnimation .waveMiddle {
-   animation: move_wave 10s linear infinite;
-}
-#home .waveBottom {
-   background-size: 50% 100px;
-}
-#home .waveAnimation .waveBottom {
-   animation: move_wave 15s linear infinite;
-}
-#home .home-content {
-   margin-top: 30px;
+#home .home_content {
+   padding-top: 5rem;
    font-size: 30px;
    color: #fff;
 }
-#home .home-img, #home .home-content  {
-   position: relative;
-   z-index: 20;
-   top: 100px;
+#home .wave {
+   position: absolute;
+   bottom: 0;
+   width: 100%;
+   left: 0;
 }
 #home .home-img img {
    width: 100%;
@@ -473,4 +404,45 @@ a {
 .text-user {
    color: var(--bg-color1);
    text-decoration: underline;
+}
+
+/***************** dashboard layout style *****************/
+.dashboard {
+   direction: rtl;
+   width: 100%;
+   height: 100vh;
+}
+.dashboard .page_header {
+   margin-top: 2rem;
+   margin-bottom: 2rem;
+   padding: 10px;
+   color: #333;
+   font-size: 25px;
+   border-bottom: 1px solid #00bfa6;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+.dashboard_content .card {
+   font-size: 30px;
+   text-align: center;
+   margin-bottom: 1rem;
+}
+.dashboard_content .card .page_link {
+   color: #00CBA9;
+   display: block;
+   height: 100%;
+}
+
+.myprojects .project_manager_header {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+   .dashboard_content .card {
+      font-size: 20px;
+   }
 }

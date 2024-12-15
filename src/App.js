@@ -1,24 +1,15 @@
-import About from './components/About';
-import Welcome from './components/Welcome';
-import Header from './components/Layout/Header';
-import Skills from './components/Skills';
-import Services from './components/Services';
-import Projects from './components/Projects';
-import Contact from './components/Contact';
-import Certifical from './components/Certifical';
-import Footer from './components/Layout/Footer';
+import Footer from './components/Footer';
+import { Routes, Route } from 'react-router-dom';
+import HomeComponent from './components/HomeComponent';
+import ControlComponent from './components/ControlComponent';
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Welcome />
-      <About />
-      <Services />
-      <Skills />
-      <Projects />
-      <Certifical />
-      <Contact />
+      <Routes>
+        <Route path='/' element={<HomeComponent />}></Route>
+        <Route path='/control/*' element={<ControlComponent />}></Route>
+      </Routes>
       <Footer />
     </div>
   );
