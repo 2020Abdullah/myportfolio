@@ -37,19 +37,19 @@ const Contact = () => {
           <form>
             <div className="row g-3">
               <div className="col-md-6">
-                <label for="name" className="form-label">Full Name</label>
+                <label className="form-label">Full Name</label>
                 <input type="text" className="form-control" id="name" placeholder="Enter your name" required />
               </div>
               <div className="col-md-6">
-                <label for="email" className="form-label">Email Address</label>
+                <label className="form-label">Email Address</label>
                 <input type="email" className="form-control" id="email" placeholder="Enter your email" required />
               </div>
               <div className="col-12">
-                <label for="subject" className="form-label">Subject</label>
+                <label className="form-label">Subject</label>
                 <input type="text" className="form-control" id="subject" placeholder="Enter your subject" required />
               </div>
               <div className="col-12">
-                <label for="message" className="form-label">Your Message</label>
+                <label className="form-label">Your Message</label>
                 <textarea id="message" className="form-control" rows="5" placeholder="Write your message" required></textarea>
               </div>
             </div>
