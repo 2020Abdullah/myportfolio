@@ -1,5 +1,6 @@
 import React, { useState, useEffect  } from 'react'
 import { Container, Nav, Navbar } from 'react-bootstrap'
+import { HashLink } from 'react-router-hash-link';
 
 const Header = () => {
   const [scrolling, setScrolling] = useState(false);
@@ -27,14 +28,21 @@ const Header = () => {
             <Navbar.Brand href="#home" className='logo'>myPortfolio</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="ms-auto">
-                    <Nav.Link href="#home">Home</Nav.Link>
-                    <Nav.Link href="#About">About</Nav.Link>
-                    <Nav.Link href="#Services">Services</Nav.Link>
-                    <Nav.Link href="#Skills">Skills</Nav.Link>
-                    <Nav.Link href="#Certificates">my certifilcal</Nav.Link>
-                    <Nav.Link href="#Projects">my projects</Nav.Link>
-                    <Nav.Link href="#Contact">contact me</Nav.Link>
+                <Nav className="links ms-auto">
+                      <HashLink smooth to="/">Home</HashLink>
+
+                      <HashLink smooth to="/#About">About</HashLink>    
+
+                      <HashLink smooth to="/#Services">Services</HashLink>    
+
+                      <HashLink smooth to="/#Skills">Skills</HashLink>    
+
+                      <HashLink smooth to="/#Certificates">Certifilcal</HashLink>    
+
+                      <HashLink smooth to="/#projects">projects</HashLink>    
+
+                      <HashLink smooth to="/#Contact">contact me</HashLink>    
+
                 </Nav>
             </Navbar.Collapse>
         </Container>

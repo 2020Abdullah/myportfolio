@@ -5,15 +5,14 @@ import { Button } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { ClipLoader } from "react-spinners";
+import Swal from "sweetalert2";
 
-const EditProject = () => {
+const EditServices = () => {
     const location = useLocation();
-    const project = location.state?.project;
+    const service = location.state?.service;
 
-    const [name, setName] = useState(project?.name || "");
-    const [description, setDescription] = useState(project?.description || "");
-    const [video, setVideo] = useState(project?.video || "");
-    const [previewLink, setPreviewLink] = useState(project?.previewLink || "");
+    const [title, setTitle] = useState(service?.title || "");
+    const [description, setDescription] = useState(service?.description || "");
     const [image, setImage] = useState(null);
     const [loading, setLoading] = useState(false);
 
@@ -37,31 +36,32 @@ const EditProject = () => {
         setLoading(true);
 
         try {
-            let imageUrl = project.image || ""; // الرابط الحالي للصورة
+            let imageUrl = service.image || ""; // الرابط الحالي للصورة
 
             // Step 1: رفع الصورة إلى Firebase Storage (إذا تم اختيار صورة جديدة)
             if (image) {
-                const storageRef = ref(storage, `projects/${image.name}`);
+                const storageRef = ref(storage, `services/${image.name}`);
                 await uploadBytes(storageRef, image); // رفع الصورة
                 imageUrl = await getDownloadURL(storageRef); // الحصول على رابط الصورة الجديدة
             }
 
             // Step 2: تحديث بيانات المشروع في Firestore
-            const projectRef = doc(db, "projects", project.id); // مرجع المستند
-            await updateDoc(projectRef, {
-              name,
+            const servicesRef = doc(db, "services", service.id); // مرجع المستند
+            await updateDoc(servicesRef, {
+              title,
               description,
-              video,
-              previewLink,
               imageUrl, // تحديث رابط الصورة
             });
 
-            alert("تم تحديث المشروع بنجاح!");
-
+            Swal.fire({
+                icon: "success",
+                title: "عملية ناجحة",
+                text: "تم تحديث الخدمة بنجاح"
+            });
         }
         catch(error){
             console.error("حدث خطأ أثناء التحديث:", error);
-            alert("فشل تحديث المشروع!");
+            alert("فشل تحديث الخدمة!");
         }
         finally {
             setLoading(false);
@@ -71,9 +71,9 @@ const EditProject = () => {
     return (
         <>
         <div className="project_edit">
-            <h3>تعديل المشروع</h3>
+            <h3>تعديل الخدمة</h3>
             {loading ? (
-                <div style={{ marginTop: "20px" }}>
+                <div className="loading" style={{ marginTop: "20px" }}>
                     <ClipLoader color="#007bff" size={50} />
                     <p>جاري التنفيذ...</p>
                 </div>
@@ -82,29 +82,15 @@ const EditProject = () => {
                     <input 
                         className="form-control mb-2" 
                         type="text" 
-                        placeholder="اسم المشروع" 
-                        value={name} 
-                        onChange={(e) => setName(e.target.value)} 
+                        placeholder="عنوان الخدمة" 
+                        value={title} 
+                        onChange={(e) => setTitle(e.target.value)} 
                     />
 
-                    <textarea className="form-control mb-2" placeholder="وصف المشروع" cols="3" rows="3" value={description} onChange={(e) => setDescription(e.target.value)}></textarea>
+                    <textarea className="form-control mb-2" placeholder="وصف الخدمة" cols="3" rows="3" value={description} onChange={(e) => setDescription(e.target.value)}></textarea>
 
-                    <input
-                        className="form-control mb-2"
-                        type="text"
-                        placeholder="رابط المشروع (اختياري)"
-                        value={previewLink}
-                        onChange={(e) => setPreviewLink(e.target.value)}
-                    />
+                    <label>رفع صورة للخدمة</label>
 
-                    <input
-                        className="form-control mb-2"
-                        type="text"
-                        placeholder="رابط الفيديو (اختياري)"
-                        value={video}
-                        onChange={(e) => setVideo(e.target.value)}
-                    />
-                    
                     <input
                         className="form-control mb-2"
                         type="file"
@@ -121,4 +107,4 @@ const EditProject = () => {
     )
 }
 
-export default EditProject;
+export default EditServices;

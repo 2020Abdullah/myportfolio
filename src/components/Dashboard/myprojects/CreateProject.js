@@ -3,6 +3,7 @@ import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { Button } from "react-bootstrap";
 import { db, storage } from "../../../firebase";
 import { addDoc, collection } from "firebase/firestore";
+import Swal from "sweetalert2";
 
 const CreateProject = () => {
     const [name, setName] = useState("");
@@ -35,7 +36,12 @@ const CreateProject = () => {
             // إضافة مشروع جديد
             await addDoc(collection(db, "projects"), projectData);
 
-            alert("تم إضافة المشروع بنجاح!");
+            Swal.fire({
+                icon: "success",
+                title: "عملية ناجحة",
+                text: "تم إضافة المشروع بنجاح"
+            });
+
             setName("");
             setDescription("");
             setPreviewLink("");
@@ -77,6 +83,8 @@ const CreateProject = () => {
                     value={video}
                     onChange={(e) => setVideo(e.target.value)}
                 />
+
+                <label>رفع صورة للمشروع</label>
                 
                 <input
                     className="form-control mb-2"

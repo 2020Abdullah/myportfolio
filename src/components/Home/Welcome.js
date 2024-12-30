@@ -3,11 +3,11 @@ import { Typed } from 'react-typed'
 
 const Welcome = () => {
   const typedElement = useRef(null); // إنشاء Ref للعنصر المستهدف
-  let typed = null;
+  let typedInstance = useRef(null);
 
   useEffect(() => {
     // تهيئة مكتبة Typed.js
-    typed = new Typed(typedElement.current, {
+    typedInstance.current = new Typed(typedElement.current, {
       strings: [
         "I'm a Full-Stack Web Developer.",
         "I specialize in Front-End Development.",
@@ -23,7 +23,7 @@ const Welcome = () => {
 
     // تنظيف المكتبة عند إزالة المكون
     return () => {
-      typed.destroy();
+      typedInstance.destroy();
     };
   }, []);
 

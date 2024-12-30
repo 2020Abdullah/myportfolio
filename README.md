@@ -36,3 +36,6 @@ this is website is myportfolio for show All information About me .
 ~~~
 https://2020abdullah.github.io/myportfolio/
 ~~~
+
+
+  "homepage": "https://2020abdullah.github.io/myportfolio",

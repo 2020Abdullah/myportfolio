@@ -17,7 +17,7 @@ const About = () => {
                     platforms tailored to meet client needs. Passionate about improving
                     user experiences and ensuring high performance for web systems.
                 </p>
-                <button className="btn btn-success"><a target="_blank" href="https://drive.google.com/file/d/1G2RLzPe2u4xpC5kBGBVqS1UWaDTmEVbp/view?usp=sharing">download cv</a></button>
+                <button className="btn btn-success"><a target="_blank" rel='noopener noreferrer' href="https://drive.google.com/file/d/1G2RLzPe2u4xpC5kBGBVqS1UWaDTmEVbp/view?usp=sharing">download cv</a></button>
             </div>
         </Container>
     </section>

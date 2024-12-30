@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -6,16 +6,26 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 import { Card } from 'react-bootstrap';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../../firebase';
 
-const myCertifical = [
-    { id: 1, title: "HTML", issuer: "Issued by: Microsoft" , image: "./images/cert/cert1.png" },
-    { id: 2, title: "CSS", issuer: "Issued by: Microsoft" , image: "./images/cert/cert2.png" },
-    { id: 3, title: "JAVASCRIPT", issuer: "Issued by: Microsoft" , image: "./images/cert/cert3.png" },
-    { id: 4, title: "Jquery AND Bootstrap", issuer: "Issued by: Microsoft" , image: "./images/cert/cert4.png" },
-    { id: 5, title: "Gradution Project", issuer: "Issued by: Microsoft" , image: "./images/cert/cert5.png" },
-];
 
 const Certifical = () => {
+  const [Cert, setCert] = useState([]);
+
+  const fetchCert = async () => {
+    const querySnapshot = await getDocs(collection(db, "myCert"));
+    const CertData = querySnapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data()
+    }));
+    setCert(CertData);
+  }
+
+  useEffect(() => {
+    fetchCert();
+  }, []);
+
   return (
     <section id="Certificates">
         <div className="container">
@@ -32,12 +42,12 @@ const Certifical = () => {
                  1200: { slidesPerView: 3 },
                }}
             >
-            {myCertifical.map((certificate) => (
+            {Cert.map((certificate) => (
                 <SwiperSlide key={certificate.id}>
                     <Card>
                         <Card.Img variant="top" src={certificate.image} alt={certificate.title} />
                         <Card.Body>
-                            <h3>{certificate.title}</h3>
+                            <h3>{certificate.name}</h3>
                         </Card.Body>
                     </Card>
                 </SwiperSlide>
