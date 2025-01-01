@@ -2,7 +2,7 @@ import React, { useState, useEffect  } from 'react'
 import { Container, Nav, Navbar } from 'react-bootstrap'
 import { HashLink } from 'react-router-hash-link';
 
-const Header = () => {
+const HeaderComponent = () => {
   const [scrolling, setScrolling] = useState(false);
 
   useEffect(() => {
@@ -50,4 +50,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default HeaderComponent

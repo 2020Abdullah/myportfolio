@@ -1,7 +1,56 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Container } from 'react-bootstrap'
+import Swal from 'sweetalert2';
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    // Formspree URL
+    const formspreeUrl = "https://formspree.io/f/xgepnawl"; // استبدل {form_id} بـ ID النموذج الخاص بك
+
+    fetch(formspreeUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: formData.name,
+        email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+      }),
+    })
+    .then((response) => {
+      if (response.ok) {
+        Swal.fire({
+            icon: "success",
+            title: "عملية ناجحة",
+            text: "تم إرسال رسالتك  بنجاح"
+        });
+
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        alert("حدث خطأ أثناء الإرسال.");
+      }
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      alert("حدث خطأ أثناء الإرسال.");
+    });
+  }
+
   return (
     <section id="Contact">
     <Container>
@@ -34,23 +83,23 @@ const Contact = () => {
           </div>
         </div>
         <div className="col-md-7">
-          <form>
-            <div className="row g-3">
+          <form onSubmit={sendEmail}>
+            <div className="row g-3"> 
               <div className="col-md-6">
                 <label className="form-label">Full Name</label>
-                <input type="text" className="form-control" id="name" placeholder="Enter your name" required />
+                <input type="text" onChange={handleChange} className="form-control" name="name" placeholder="Enter your name" required />
               </div>
               <div className="col-md-6">
                 <label className="form-label">Email Address</label>
-                <input type="email" className="form-control" id="email" placeholder="Enter your email" required />
+                <input type="email" onChange={handleChange} className="form-control" name="email" placeholder="Enter your email" required />
               </div>
               <div className="col-12">
                 <label className="form-label">Subject</label>
-                <input type="text" className="form-control" id="subject" placeholder="Enter your subject" required />
+                <input type="text" onChange={handleChange} className="form-control" name="subject" placeholder="Enter your subject" required />
               </div>
               <div className="col-12">
                 <label className="form-label">Your Message</label>
-                <textarea id="message" className="form-control" rows="5" placeholder="Write your message" required></textarea>
+                <textarea name="message" onChange={handleChange} className="form-control" rows="5" placeholder="Write your message" required></textarea>
               </div>
             </div>
             <div className="text-end mt-4">

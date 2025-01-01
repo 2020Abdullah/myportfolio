@@ -16,8 +16,8 @@ const Welcome = () => {
         "I build powerful web applications.",
         "Need a custom website? I can help!",
       ], // النصوص التي سيتم عرضها
-      typeSpeed: 50, // سرعة الكتابة
-      backSpeed: 30, // سرعة الحذف
+      typeSpeed: 100, // سرعة الكتابة
+      backSpeed: 50, // سرعة الحذف
       loop: true, // جعل التأثير متكرر
     });
 

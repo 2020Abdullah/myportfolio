@@ -10,7 +10,6 @@ const IndexView = () => {
     const [Cert, setCert] = useState([]);
     const [loading, setLoading] = useState(false);
     const [currentCert, setCurrentCert] = useState({id: null, name: "", image: ""});
-    const [isEdit, setIsEdit] = useState(false);
     const [showModel, setShowModel] = useState(false);
     const [image, setImage] = useState(null);
 

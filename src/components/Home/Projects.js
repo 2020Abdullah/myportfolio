@@ -1,7 +1,6 @@
 import { collection, getDocs } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react'
 import { db } from '../../firebase';
-import './css/projects.css';
 
 const Projects = () => {
     const [Allprojects, setProjects] = useState([]);
