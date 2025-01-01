@@ -16,7 +16,7 @@ This is a responsive and customizable portfolio template powered by React and Fi
 # How to Installation project
 
 ```
-git clone https://github.com/username/portfolio.git
+git clone https://github.com/2020Abdullah/myportfolio.git
 cd portfolio
 ```
 
@@ -26,7 +26,21 @@ cd portfolio
 npm update
 ```
 
+# start project 
+
+```
+npm start
+```
+
+# go to home 
+
+## go to dashboard
+
+```
+```
+
 # Project Structure
+```
 /src
   /components
     HomeComponent.js         // It has all the sub-components of the interface.
@@ -47,7 +61,9 @@ npm update
         Certifical.js   // fix section
         Projects.js   // six section
         Contact.js   // seven section
-        
+```       
+
 # project preview
-[https://2020abdullah.github.io/myportfolio/
-](https://2020abdullah.github.io/myportfolio/)
+
+[homePage](https://2020abdullah.github.io/myportfolio/)
+[Dashboard](https://2020abdullah.github.io/myportfolio/#/control)
