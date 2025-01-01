@@ -32,13 +32,6 @@ npm update
 npm start
 ```
 
-# go to home 
-
-## go to dashboard
-
-```
-```
-
 # Project Structure
 ```
 /src
