@@ -10,6 +10,7 @@ import IndexServices from './myservices/IndexServices';
 import CreateServices from './myservices/CreateServices';
 import EditServices from './myservices/EditServices';
 import IndexView from './myCertifical/IndexView';
+import IndexAbout from './myAbout/IndexAbout';
 
 const DashboardControl = () => {
 
@@ -44,6 +45,7 @@ const DashboardControl = () => {
                 <Route path="/servies/edit" element={<EditServices />}></Route>
 
                 <Route path="/certfical/view" element={<IndexView />}></Route>
+                <Route path="/About/view" element={<IndexAbout />}></Route>
 
             </Routes>
         </Container>

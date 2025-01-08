@@ -218,14 +218,18 @@ a {
 }
 
 .service {
-  background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  width: 100%;
-  max-width: 350px;
+  min-height: 350px;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service img {
+   width: 150px;
+   height: 120px;
+   display: block;
+   margin: auto;
 }
 
 .service:hover {
@@ -446,13 +450,21 @@ a {
    font-size: 30px;
    text-align: center;
    margin-bottom: 1rem;
+   transition: all 0.3s ease-in-out;
 }
 .dashboard_content .card .page_link {
    color: #00CBA9;
-   display: block;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   gap: 10px;
    height: 100%;
 }
-
+.dashboard_content .card:hover {
+   background-color: #ddd;
+   color: #fff;
+}
 .myprojects .project_manager_header {
    display: flex;
    justify-content: space-between;
@@ -520,7 +532,45 @@ a {
    background: #fff;
    color: #ff6a00;
  }
-
+ 
+ .skillInput {
+   display: flex;
+   gap: 10px;
+ }
+ 
+ .loading-overlay {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background: rgba(0, 0, 0, 0.5);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   z-index: 1000;
+   color: #fff;
+   flex-direction: column;
+ }
+ 
+ /* Spinner */
+ .spinner {
+   width: 50px;
+   height: 50px;
+   border: 6px solid #ccc;
+   border-top: 6px solid #1d72b8;
+   border-radius: 50%;
+   animation: spin 1s linear infinite;
+ }
+ 
+ @keyframes spin {
+   0% {
+     transform: rotate(0deg);
+   }
+   100% {
+     transform: rotate(360deg);
+   }
+ }
 
 @media (max-width: 768px) {
    .dashboard_content .card {

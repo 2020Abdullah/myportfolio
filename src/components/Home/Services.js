@@ -1,6 +1,7 @@
 import { collection, getDocs } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react'
 import { db } from '../../firebase';
+import { Card } from 'react-bootstrap';
 
 const Services = () => {
   const [services, setServices] = useState([]);
@@ -22,15 +23,19 @@ const Services = () => {
   return (
     <section id='Services' className="services-section">
     <h2 className='section-title'>my services</h2>
-    <div className="services-container">
+    <div className="row">
         {
             services.map((s) => {
                 return (
-                    <div className="service">
-                        {s.imageUrl && <img src={s.imageUrl} alt={s.title} width={100} height={100}/>} 
+                  <div className='col-md-4' key={s.id}>
+                    <Card className='service mb-3'>
+                      <Card.Img src={s.imageUrl} alt={s.title} />
+                      <Card.Body>
                         <h3>{s.title}</h3>
                         <p>{s.description}</p>
-                    </div>
+                      </Card.Body>
+                    </Card>
+                  </div>
                 )
             })
         }
