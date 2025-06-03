@@ -73,50 +73,48 @@ const IndexView = () => {
 
     return (
         <section className="mycertifical">
-            <div className="d-flex justify-content-between">
-                <h3>إدارة الشهادات</h3>
-                <Button variant="success" onClick={handleShow} data-bs-toggle="modal" data-bs-target="#CreateModal"> 
-                    إضافة شهادة جديدة
-                </Button>
-            </div>
-
-            {loading ? (
-                <div className="loading" style={{ marginTop: "20px" }}>
-                    <ClipLoader color="#007bff" size={50} />
-                    <p>جاري التنفيذ...</p>
-                </div> 
-            ) : (
-                <Table className='mt-3' striped bordered>
-                <thead>
-                    <tr>
-                    <td>رقم الشهادة</td>
-                    <td>اسم الشهادة</td>
-                    <td>الشهادة</td>
-                    <td>إجراء</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        Cert.map((c, index) => {
-                            return (
-                                <tr>
-                                <td>{index + 1}</td>
-                                <td>{c.name}</td>
-                                <td>
-                                    <img src={c.image} alt="image.jpg" width={80} height={80}/>
-                                </td>
-                                <td>
-                                    <Button variant="danger" onClick={() => handleDelete(c.id)}>
-                                        <i className="fa fa-trash"></i>
-                                    </Button>
-                                </td>
-                            </tr>
-                            )
-                        })
-                    }
-                </tbody>
-            </Table>
-            )}
+        {loading && (
+        <div className="loading-overlay">
+            <div className="spinner"></div>
+            <p>جاري التنفيذ...</p>
+        </div>
+        )}
+        <div className="d-flex justify-content-between">
+            <h3>إدارة الشهادات</h3>
+            <Button variant="success" onClick={handleShow} data-bs-toggle="modal" data-bs-target="#CreateModal"> 
+                إضافة شهادة جديدة
+            </Button>
+        </div>
+        <Table className='mt-3' striped bordered>
+            <thead>
+                <tr>
+                <td>رقم الشهادة</td>
+                <td>اسم الشهادة</td>
+                <td>الشهادة</td>
+                <td>إجراء</td>
+                </tr>
+            </thead>
+            <tbody>
+                {
+                    Cert.map((c, index) => {
+                        return (
+                            <tr>
+                            <td>{index + 1}</td>
+                            <td>{c.name}</td>
+                            <td>
+                                <img src={c.image} alt="image.jpg" width={80} height={80}/>
+                            </td>
+                            <td>
+                                <Button variant="danger" onClick={() => handleDelete(c.id)}>
+                                    <i className="fa fa-trash"></i>
+                                </Button>
+                            </td>
+                        </tr>
+                        )
+                    })
+                }
+            </tbody>
+        </Table>
 
         <Modal show={showModel} onHide={handleClose}>
             <Modal.Header closeButton>

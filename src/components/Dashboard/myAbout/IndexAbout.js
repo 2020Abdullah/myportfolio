@@ -32,54 +32,62 @@ const IndexAbout = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    setLoading(true); // تفعيل حالة التحميل
-
+    setLoading(true);
+  
     const { id, name, job, bio, image, cv, skills } = formData;
+  
     try {
-        // رفع الصور والملفات إلى Firebase Storage
+      let imageUrl = null;
+      let cvUrl = null;
+  
+      // إذا تم رفع صورة
+      if (image) {
         const imageRef = ref(storage, `images/${image.name}`);
-        const cvRef = ref(storage, `cv/${cv.name}`);
         await uploadBytes(imageRef, image);
+        imageUrl = await getDownloadURL(imageRef);
+      }
+  
+      // إذا تم رفع CV
+      if (cv) {
+        const cvRef = ref(storage, `cv/${cv.name}`);
         await uploadBytes(cvRef, cv);
-  
-        const imageUrl = await getDownloadURL(imageRef);
-        const cvUrl = await getDownloadURL(cvRef);
-  
-        // إضافة البيانات أو تحديثها في Firestore
-        await setDoc(doc(db, "About", id), {
-          id,
-          name,
-          job,
-          bio,
-          imageUrl,
-          cvUrl,
-          skills
-        });
-  
-        Swal.fire({
-            icon: "success",
-            title: "عملية ناجحة",
-            text: "تم تحديث البيانات بنجاح"
-        });
-
-      } catch (error) {
-        console.error("خطأ أثناء الحفظ:", error);
-        alert("حدث خطأ أثناء الحفظ.");
+        cvUrl = await getDownloadURL(cvRef);
       }
-      finally {
-        setFormData({
-          name: "",
-          job: "",
-          bio: "",
-          cv: null,
-          image: null,
-          skills: []
-        });
-
-        setLoading(false); // تعطيل حالة التحميل
-      }
+  
+      // رفع البيانات إلى Firestore مع القيم المتاحة فقط
+      await setDoc(doc(db, "About", id), {
+        id,
+        name,
+        job,
+        bio,
+        ...(imageUrl && { imageUrl }),  // فقط إذا كانت موجودة
+        ...(cvUrl && { cvUrl }),        // فقط إذا كانت موجودة
+        skills
+      });
+  
+      Swal.fire({
+        icon: "success",
+        title: "عملية ناجحة",
+        text: "تم تحديث البيانات بنجاح"
+      });
+  
+    } catch (error) {
+      console.error("خطأ أثناء الحفظ:", error);
+      alert("حدث خطأ أثناء الحفظ.");
+    } finally {
+      setFormData({
+        name: "",
+        job: "",
+        bio: "",
+        cv: null,
+        image: null,
+        skills: []
+      });
+  
+      setLoading(false);
+    }
   };
+  
 
   const handleSkillAdd = () => {
       if( skillInput.trim() !== ""){

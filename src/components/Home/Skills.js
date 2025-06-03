@@ -1,11 +1,13 @@
 import { collection, getDocs } from 'firebase/firestore';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { db } from '../../firebase';
 import { Card, Col, Container, Row } from 'react-bootstrap';
 
 
 const Skills = () => {
   const [myskills, setMySkills] = useState([]);
+  const sectionRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   const fetchSkills = async () => {
     const querySnapshot = await getDocs(collection(db, "skills"));
@@ -16,7 +18,29 @@ const Skills = () => {
     setMySkills(skillsData);
   }
 
+  const animationSection = () => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.3 } // يبدأ عندما يظهر 30% من القسم
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }
+
   useEffect(() => {
+    animationSection();
     fetchSkills();
   }, [])
 
@@ -27,7 +51,7 @@ const Skills = () => {
         <Row>
           {myskills.map((skill, index) => (
               <Col lg={3} className='mb-2' key={index}>
-                <Card>
+                <Card style={{ animationDelay: `${index * 0.2}s` }} className={`skill-box animate__animated ${isVisible ? "animate__fadeInUp" : ""}`}>
                   <Card.Body>
                     <h3>{skill.name}</h3>
                   </Card.Body>

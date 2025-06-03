@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
-import { ClipLoader } from "react-spinners";
 
 const EditProject = () => {
     const location = useLocation();
@@ -53,7 +52,7 @@ const EditProject = () => {
               description,
               video,
               previewLink,
-              imageUrl, // تحديث رابط الصورة
+              ...(imageUrl && { imageUrl }),  // فقط إذا كانت موجودة
             });
 
             alert("تم تحديث المشروع بنجاح!");
@@ -71,14 +70,14 @@ const EditProject = () => {
     return (
         <>
         <div className="project_edit">
+            {loading && (
+            <div className="loading-overlay">
+                <div className="spinner"></div>
+                <p>جاري التنفيذ...</p>
+            </div>
+            )}
             <h3>تعديل المشروع</h3>
-            {loading ? (
-                <div style={{ marginTop: "20px" }}>
-                    <ClipLoader color="#007bff" size={50} />
-                    <p>جاري التنفيذ...</p>
-                </div>
-            ) : (
-                <form onSubmit={handleUpdate}>
+            <form onSubmit={handleUpdate}>
                     <input 
                         className="form-control mb-2" 
                         type="text" 
@@ -114,8 +113,7 @@ const EditProject = () => {
 
                     <Button type="submit" variant="success">حفظ البيانات</Button>
 
-                </form>
-            )}
+            </form>
         </div>
         </>
     )

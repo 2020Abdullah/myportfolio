@@ -11,10 +11,11 @@ const CreateProject = () => {
     const [image, setImage] = useState(null);
     const [video, setVideo] = useState(null);
     const [previewLink, setPreviewLink] = useState(null);
+    const [loading, setLoading] = useState(false); // حالة التحميل
 
     const addProject = async (e) => {
         e.preventDefault();
-
+        setLoading(true); 
         try {
 
             let imageUrl = "";
@@ -51,10 +52,17 @@ const CreateProject = () => {
         catch(error){
             alert(error);
         }
+        setLoading(false);
     }
 
     return (
         <div className="project_add">
+            {loading && (
+            <div className="loading-overlay">
+                <div className="spinner"></div>
+                <p>جاري التنفيذ...</p>
+            </div>
+            )}
             <h3>إضافة مشروع جديد</h3>
             <form onSubmit={addProject}>
                 <input 

@@ -1,12 +1,36 @@
 import { collection, getDocs } from 'firebase/firestore';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { db } from '../../firebase';
 import { Card } from 'react-bootstrap';
 
 const Services = () => {
   const [services, setServices] = useState([]);
+  const sectionRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+  
+  const animationSection = () => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.3 } // يبدأ عندما يظهر 30% من القسم
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }
 
   useEffect(() => {
+    animationSection();
     fetchServices();
   }, []);
 
@@ -25,10 +49,10 @@ const Services = () => {
     <h2 className='section-title'>my services</h2>
     <div className="row">
         {
-            services.map((s) => {
+            services.map((s, index) => {
                 return (
                   <div className='col-md-4' key={s.id}>
-                    <Card className='service mb-3'>
+                    <Card style={{ animationDelay: `${index * 0.2}s` }} className={`service animate__animated ${isVisible ? "animate__fadeInUp" : ""}`}>
                       <Card.Img src={s.imageUrl} alt={s.title} />
                       <Card.Body>
                         <h3>{s.title}</h3>

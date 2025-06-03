@@ -35,8 +35,8 @@ const Welcome = () => {
       // تهيئة مكتبة Typed.js
       typedInstance.current = new Typed(typedElement.current, {
         strings: profile.skills, // النصوص التي سيتم عرضها
-        typeSpeed: 100, // سرعة الكتابة
-        backSpeed: 100, // سرعة الحذف
+        typeSpeed: 200, // سرعة الكتابة
+        backSpeed: 200, // سرعة الحذف
         loop: true, // جعل التأثير متكرر
       });
     }
@@ -53,7 +53,7 @@ const Welcome = () => {
 
   return (
     <section id="home">
-        <div className='home_content'>
+        <div className='home_content_wrapper'>
           <div className="container">
               <div className="row align-items-center">
                 <div className="col-md-6 col-sm-12">
@@ -66,7 +66,7 @@ const Welcome = () => {
                 </div>
                 <div className="col-md-6 col-sm-12">
                   <div className="home-img">
-                      <img src="./images/coding.svg" className="img-fluid" alt='img'/>
+                      <img src={profile.imageUrl} className="img-responsive" alt='img'/>
                   </div>
                 </div>
               </div>

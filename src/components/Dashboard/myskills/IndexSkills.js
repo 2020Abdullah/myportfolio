@@ -3,7 +3,6 @@ import { Button, Modal, Table } from 'react-bootstrap'
 import { db } from '../../../firebase';
 import { addDoc, collection, deleteDoc, doc, getDocs, updateDoc } from 'firebase/firestore';
 import Swal from 'sweetalert2';
-import { ClipLoader } from 'react-spinners';
 
 const IndexSkills = () => {
   const [skills, setSkills] = useState([]);
@@ -70,6 +69,12 @@ const IndexSkills = () => {
 
   return (
     <section className='myskills'>
+    {loading && (
+      <div className="loading-overlay">
+          <div className="spinner"></div>
+          <p>جاري التنفيذ...</p>
+      </div>
+      )}
       <div className="d-flex justify-content-between">
           <h3>إدارة المهارات</h3>
           <Button variant="success" onClick={handleShow} data-bs-toggle="modal" data-bs-target="#skillModal"> 
@@ -77,13 +82,7 @@ const IndexSkills = () => {
           </Button>
       </div>
 
-      {loading ? (
-        <div className="loading" style={{ marginTop: "20px" }}>
-            <ClipLoader color="#007bff" size={50} />
-            <p>جاري التنفيذ...</p>
-        </div> 
-      ) : (
-        <Table className='mt-3' striped bordered>
+      <Table className='mt-3' striped bordered>
           <thead>
             <tr>
               <td>رقم المهارة</td>
@@ -116,7 +115,6 @@ const IndexSkills = () => {
               }
           </tbody>
       </Table>
-      )}
 
 
 

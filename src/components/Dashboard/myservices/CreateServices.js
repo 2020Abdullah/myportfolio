@@ -9,10 +9,11 @@ const CreateServices = () => {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [image, setImage] = useState(null);
+    const [loading, setLoading] = useState(false); // حالة التحميل
 
     const addServices = async (e) => {
         e.preventDefault();
-
+        setLoading(true); 
         try {
 
             let imageUrl = "";
@@ -45,10 +46,17 @@ const CreateServices = () => {
         catch(error){
             alert(error);
         }
+        setLoading(false); 
     }
 
     return (
         <div className="service_add">
+            {loading && (
+            <div className="loading-overlay">
+                <div className="spinner"></div>
+                <p>جاري التنفيذ...</p>
+            </div>
+            )}
             <h3>إضافة خدمة جديدة</h3>
             <form onSubmit={addServices}>
                 <input 
