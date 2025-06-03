@@ -51,7 +51,7 @@ const Services = () => {
         {
             services.map((s, index) => {
                 return (
-                  <div className='col-md-4' key={s.id}>
+                  <div className='col-md-4 mb-3' key={s.id}>
                     <Card style={{ animationDelay: `${index * 0.2}s` }} className={`service animate__animated ${isVisible ? "animate__fadeInUp" : ""}`}>
                       <Card.Img src={s.imageUrl} alt={s.title} />
                       <Card.Body>

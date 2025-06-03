@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Button, Form } from 'react-bootstrap'
 import Swal from 'sweetalert2';
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
-import { doc, setDoc } from 'firebase/firestore';
+import { doc, setDoc, getDoc } from 'firebase/firestore';
 import { db, storage } from '../../../firebase';
 
 const IndexAbout = () => {
@@ -20,6 +20,33 @@ const IndexAbout = () => {
   const [skillInput, setSkillInput] = useState(""); // حقل مؤقت لإدخال المهارة الجديدة
   const [loading, setLoading] = useState(false); // حالة التحميل
 
+  useEffect(() => {
+    const fetchAboutData = async () => {
+      try {
+        const docRef = doc(db, "About", "1"); // نفس الـ id
+        const docSnap = await getDoc(docRef);
+  
+        if (docSnap.exists()) {
+          const data = docSnap.data();
+  
+          // تحديث formData بدون إدخال الملفات
+          setFormData((prevData) => ({
+            ...prevData,
+            name: data.name || "",
+            job: data.job || "",
+            bio: data.bio || "",
+            skills: data.skills || []
+            // لا نضع image أو cv
+          }));
+        }
+      } catch (error) {
+        console.error("حدث خطأ أثناء جلب البيانات:", error);
+      }
+    };
+  
+    fetchAboutData();
+  }, []);
+  
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
