@@ -15,7 +15,7 @@ const HomeComponent = () => {
     // Set a timer for 3 seconds
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 5000);
+    }, 2000);
 
     // Cleanup timer when component unmounts
     return () => clearTimeout(timer);
